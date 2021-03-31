@@ -29,21 +29,12 @@
                 tableData += "<tr>";
                 tableData += "<th>Code</th>";
                 tableData += "<th>Name</th>";
-                tableData += "<th>Precision</th>";
                 tableData += "<th>Type</th>";
                 tableData += "</tr>";
                 for (let key in data) {
-                    //console.log(key);
-                    //console.log(data[key]);
-                    //console.log(data[key].code);
-                    //console.log(data[key].name);
-                    //console.log(data[key].precision);
-                    //console.log(data[key]._type);
-
                     tableData += "<tr>";
                     tableData += "<td>" + data[key].code + "</td>";
                     tableData += "<td>" + data[key].name + "</td>";
-                    tableData += "<td>" + data[key].precision + "</td>";
                     tableData += "<td>" + data[key]._type + "</td>";
                     tableData += "</tr>";                    
                  };

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <title>Bisq</title>
+    </head>
+    <body>
+        <h1>Bisq</h1>
+        <h2><a id="currencies" href="test.html">Currencies</a></h2>
+        <h3>
+            <table>
+            </table>
+        </h3>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $("#currencies").click(function(){
+                console.log("Inicio");
+                console.log("Fin");                
+            });
+
+            $.get('https://bisq.markets/api/currencies', function(data){
+                //console.log(data);
+                var tableData = "";
+                tableData += "<tr>";
+                tableData += "<th>Code</th>";
+                tableData += "<th>Name</th>";
+                tableData += "<th>Precision</th>";
+                tableData += "<th>Type</th>";
+                tableData += "</tr>";
+                for (let key in data) {
+                    //console.log(key);
+                    //console.log(data[key]);
+                    //console.log(data[key].code);
+                    //console.log(data[key].name);
+                    //console.log(data[key].precision);
+                    //console.log(data[key]._type);
+
+                    tableData += "<tr>";
+                    tableData += "<td>" + data[key].code + "</td>";
+                    tableData += "<td>" + data[key].name + "</td>";
+                    tableData += "<td>" + data[key].precision + "</td>";
+                    tableData += "<td>" + data[key]._type + "</td>";
+                    tableData += "</tr>";                    
+                 };
+                document.querySelector('table').innerHTML = tableData;
+            });
+ 
+        });
+    </script>        
+</html>
